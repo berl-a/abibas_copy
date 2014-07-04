@@ -87,7 +87,7 @@ $(document).ready(
 			function() {
 				mouse_on_menu1 = true;
 				
-				$('nav .nav_wrapper ul li:last-of-type a').css(
+				$('nav .nav_wrapper ul:first-of-type li:last-of-type a').css(
 					{
 						'background-color': 'white',
 						'color': 'black'
