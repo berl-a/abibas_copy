@@ -207,10 +207,13 @@ div.links_under_slider {
 			margin: 0;
 			padding: 0;
 		}
-			div.links_under_slider div.links_wrapper div.slider_controls a {
+			div.links_under_slider div.links_wrapper div.slider_controls img {
+				display: inline-block;
 				vertical-align: middle;
-				line-height: 30px;
+				padding-top: 8px;
+				cursor: pointer;
 			}
+			
 		div.links_under_slider div.links_wrapper div.links {
 			display: inline-block;
 			margin: 0;
@@ -219,7 +222,7 @@ div.links_under_slider {
 			float: right;
 		}
 			div.links_under_slider div.links_wrapper div.links a {
-				display: inline;
+				display: inline-block;
 				height: 100%;
 				vertical-align: middle;
 				line-height: 30px;
@@ -232,12 +235,28 @@ div.links_under_slider {
 				color: white;
 			}                          
 			div.links_under_slider div.links_wrapper div.links a:last-of-type {
-				background-color: white;
 				color: black;
 				font-weight: 700;
+				padding: 0 30px;
+				background-color: #ebebeb;
 			}
 			div.links_under_slider div.links_wrapper div.links img {
 				vertical-align: middle;
 				line-height: 35px;
 			}
 		
+section {
+	background-color: #ebebeb;
+	width: 100%;
+}
+
+.wrapper {
+	width: 950px;
+	margin: auto;
+}
+
+.commodity {
+	box-sizing: border-box;
+	width: 230px;
+	height: 315px;
+}

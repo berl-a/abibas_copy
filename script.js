@@ -313,9 +313,6 @@ $(document).ready(
 			}
 		);
 		
-		/***LINKS UNDER SLIDER***/
-		
-		
 
 	}
 );
