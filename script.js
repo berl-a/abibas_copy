@@ -33,7 +33,7 @@ $(document).ready(
 					'left': pos_of_a.left + 'px',
 					'top': pos_of_a.top + height_of_a + 1 + 'px'
 				});
-			}else 
+			} else
 				clearInterval(intervalID);
 		}
 
@@ -227,107 +227,95 @@ $(document).ready(
 
 
 		/***SLIDER***/
-		
-		var img = new Image();
-		var width, height;
-		img.onload = function(){
-			width = $(this).width();
-			height = $(this).height();
-			alert(width + "  " + height);
-		};
-		img.src = $('img.slider').attr('src');
-		alert(width + "  " + height);
-		
+
 		var number_of_image = 0;
-		
-		
+
+		var isPaused = false;
+
 		var images = ["res/slider_0_crop.jpg", "res/slider_1_crop.jpg", "res/slider_2_crop.jpg"];
 		var alts = ["Cool image 0", "Cool image 1", "Cool image 2"];
-		
-		var slide = function(time) {
-						
-			var first_slider_pos = $('img.slider').position();
-			
-			
-			if(number_of_image <= 1)
-				number_of_image++;
-			else
-				number_of_image = 0;
-			
-			$('img.slider:first-of-type').after("<img class='slider' src='" + images[number_of_image] + "' alt='" + alts[number_of_image] + "' />");
-			
-			var windowWidth = $(window).width();
-			
-			$('img.slider:last-of-type').css(
-				{ 
-					'position': 'absolute',
-					'top': first_slider_pos.top + 'px',
-					'left': windowWidth + 'px'
+
+		var slide = function (time, image) {
+
+			if (image === 'next') {
+				if (number_of_image <= 1)
+					number_of_image++;
+				else
+					number_of_image = 0;
+			} else {
+				number_of_image = parseInt(image);
+			}
+
+			$("div.links_under_slider div.links_wrapper div.slider_controls img:not(div.links_under_slider div.links_wrapper img:first-of-type)").each(
+				function(){
+					$(this).attr('src', "res/slider_control.png");
 				}
 			);
 			
-			$('img.slider:first-of-type').animate(
-				{
-					left: '-' + windowWidth + 'px'
-				},
-				{
-					duration: time,
-					queue: false,
-					complete: function(){
-						$('img.slider:first-of-type').remove();
+			$("div.links_under_slider div.links_wrapper img").each(
+				function(){
+					if($(this).attr('id') == number_of_image){
+						$(this).fadeTo(
+							time / 2, 
+							0.5,
+							function() {
+								$(this).attr('src', "res/slider_control_chosen.png");
+								$(this).fadeTo(time / 2, 1);
+							}				   
+						);
 					}
 				}
 			);
-			$('img.slider:last-of-type').animate(
-				{
-					left: 0
-				},
-				{
-					duration: time,
-					queue: false,
-					complete: function() {
-						//$('div.links_under_slider').insertAfter($('img.slider:last-of-type'));
-					}
-				}
+			
+			$('img.slider').fadeTo(
+				time / 2, 
+				0.1,
+				function() {
+					$('img.slider').attr('src', images[number_of_image]);
+					$('img.slider').attr('alt', alts[number_of_image]);
+					$('img.slider').fadeTo(time / 2, 1);
+				}				   
 			);
-		}
-		
-		
+		};
+
+
 		var time = 10000;
 
 		var tick = function () {
-			
-			//if (!hover_over_image)
-			time -= 100;
-			
+
+			if (!isPaused)
+				time -= 100;
+
 			if (time <= 0) {
-				slide(200);
+				slide(200, 'next');
 				time = 10000;
 			}
-		}
+		};
 
 		setInterval(tick, 100);
-		
-		$(".links_under_slider img").click(
-			function(){
-				
-				var id = parseInt($(this).attr('id'));
-				
-				if(id === 'pause'){
-					
-					
-					
-				}else{
-					
-					var images = ["res/slider_0_crop.jpg", "res/slider_1_crop.jpg", "res/slider_2_crop.jpg"];
-					var alts = ["Cool image 0", "Cool image 1", "Cool image 2"];
 
-					$('img.slider:first-of-type').attr('src', images[id]);
-					$('img.slider:first-of-type').attr('alt', alts[id]);
-					
-				}
+		$("div.links_under_slider div.links_wrapper div.slider_controls img").click(
+			function () {
+
+				var id = $(this).attr('id');
+				var $this_button = $(this);
+
+				if (id === 'pause') {
+					isPaused = true;
+					$this_button.attr('id', 'play');
+					$this_button.attr('src', 'res/play.png');
+				} else if (id === 'play') {
+					isPaused = false;
+					$this_button.attr('id', 'pause');
+					$this_button.attr('src', 'res/pause.png');
+				} else
+					slide(200, parseInt(id));
 			}
 		);
 		
+		/***LINKS UNDER SLIDER***/
+		
+		
+
 	}
 );
