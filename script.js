@@ -317,10 +317,23 @@ $(document).ready(
 		
         /***COMMODITY***/
 		
+		$('commodity div').each(
+			function(){
+				var $this_div = $(this);
+				var x = $this_div.position().left;
+				var y = $this_div.position().top;
+				$this_div.child('img').attr('left', "'" + x + "'");
+				$this_div.child('img').attr('top', "'" + y + "'");
+			}
+		);
+		
 		$('.commodity').hover(
 			function(){
 				
-				var $this_a = $(this).find('.hiding');
+				var this_div = $(this).children('div');
+				
+				var $this_a = this_div.find('a.hiding');
+				
 				$this_a.animate(
 					{
 						'top': '-=7%',
@@ -330,10 +343,18 @@ $(document).ready(
 						duration: 350
 					}
 				);
+				
+				var this_img = this_div.children('img');
+				this_img.removeClass('normal');
+				this_img.addClass('darken');
+				
 			}, 
 			function(){
 				
-				var $this_a = $(this).find('.hiding');
+				var this_div = $(this).children('div');
+				
+				var $this_a = this_div.find('a.hiding');
+				
 				$this_a.animate(
 					{
 						'opacity': '0',
@@ -344,6 +365,10 @@ $(document).ready(
 						duration: 100
 					}
 				);
+				
+				var this_img = this_div.children('img');
+				this_img.removeClass('darken');
+				this_img.addClass('normal');
 			}
 		);
 		

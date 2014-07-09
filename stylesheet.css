@@ -250,6 +250,7 @@ section {
 	width: 100%;
 	margin-top: -30px;
 	padding-top: 80px;
+	padding-bottom: 24px;
 }
 
 .wrapper {
@@ -262,38 +263,58 @@ section {
 	box-sizing: border-box;
 	width: 230px;
 	height: 315px;
-	margin: 0 9px 9px 0;
+	margin: 0 9px 10px 0;
 	padding: 0;
 	border-bottom: 2px solid #e9171a;
 	background-color: white;
 }
-.commodity:last-of-type {
-	margin: 0 0 9px 0;
+.commodity:nth-of-type(4) {
+	margin: 0;
 }
-	.commodity div {
+.commodity:nth-of-type(5) {
+	width: 470px;
+	margin: 0;
+	margin-left: 2px;
+}
+.commodity:nth-of-type(6) {
+	width: 470px;
+	margin: 0;
+	margin-left: 11px;
+}
+.commodity div {
 		box-sizing: border-box;
 		width: 230px;
 		height: 230px;
 	}
-	.commodity div a {
-		position: relative;
-		z-index: 15;
-		top: 50%;
-		left: 20%;
-		padding-bottom: 5px;
-		font-size: 23px;
-		font-weight: 700;
-		text-decoration: none;
-		color: white;
-		border-bottom: 1px solid white;
-		
-		opacity: 0;
+	.commodity:nth-of-type(5) div {
+		width: 470px;
 	}
-		.commodity div a img {
-			padding-top: 2px;
-			padding-left: 2px;
+	.commodity:nth-of-type(6) div {
+		width: 470px;
+	}
+		.commodity>div>img {
+			position: absolute;
+			z-index: 2;
 		}
-	.commodity p {
+		.commodity div a {
+			position: relative;
+			z-index: 15;
+			top: 50%;
+			left: 20%;
+			padding-bottom: 5px;
+			font-size: 23px;
+			font-weight: 700;
+			text-decoration: none;
+			color: white;
+			border-bottom: 1px solid white;
+
+			opacity: 0;
+		}
+			.commodity div a img {
+				padding-top: 2px;
+				padding-left: 2px;
+			}
+	.commodity>p {
 		font-size: 17px;
 		margin-top: 15px;
 		margin-left: 10px;
@@ -309,9 +330,13 @@ section {
 		color: #e9171a;
 	}
 .normal {
-	transition: all ease 0.5s;
+	transition: all ease 0.2s;
 }
 .darken {
-	filter: brightness(0.9);
-	transition: all ease 1s;
+	-webkit-filter: brightness(.6);
+	filter: brightness(.6);
+	transition: all ease 0.2s;
+}
+footer {
+	border-top: 20px solid black;
 }
