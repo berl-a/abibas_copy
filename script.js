@@ -313,6 +313,40 @@ $(document).ready(
 			}
 		);
 		
+		
+		
+        /***COMMODITY***/
+		
+		$('.commodity').hover(
+			function(){
+				
+				var $this_a = $(this).find('.hiding');
+				$this_a.animate(
+					{
+						'top': '-=7%',
+						'opacity': '1'
+					},
+					{
+						duration: 350
+					}
+				);
+			}, 
+			function(){
+				
+				var $this_a = $(this).find('.hiding');
+				$this_a.animate(
+					{
+						'opacity': '0',
+						'top': '+=7%'
+					}, 
+					{
+						queue: true,
+						duration: 100
+					}
+				);
+			}
+		);
+		
 
 	}
 );
