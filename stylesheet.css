@@ -295,7 +295,7 @@ section {
             position: absolute;
             z-index: 2;
         }
-        .commodity div a {
+        .commodity div a.hiding {
             position: relative;
             z-index: 15;
             top: 50%;
@@ -309,7 +309,7 @@ section {
 
             opacity: 0;
         }
-            .commodity div a img {
+            .commodity div a.hiding img {
                 padding-top: 2px;
                 padding-left: 2px;
             }
@@ -328,9 +328,8 @@ section {
         font-weight: 700;
         color: #e9171a;
     }
-    .commodity:nth-of-type(6) .hiding {
+    .commodity:nth-of-type(6) a.hiding {
         margin-left: 30px;
-        display: block;
     }
 .normal {
     transition: all ease 0.2s;
@@ -342,21 +341,67 @@ section {
 }
 footer {
     border-top: 20px solid black;
+	padding-top: 20px;
 }
 .footer-wrapper {
-    width: 1400px;
+    width: 950px;
     margin: auto;
     padding-top: 20px;
 }
 .footer-wrapper a {
     cursor: pointer;
 }
-}
-.footer-wrapper a:first-of-type {
-    font-size: 14px;
+
+footer .footer-wrapper .footer-wrapper-top {
+	padding: 20px 0 20px 20px;
+	font-size: 12px;
     font-weight: 900;
+	color: #333;
+    border-top: 1px dashed #bebebe;
+    border-bottom: 1px dashed #bebebe;
+}
+footer .footer-wrapper .footer-wrapper-top a:first-of-type {
+	
+}
+/*
+
+.footer-wrapper a:first-of-type {
+    font-size: 12px;
+    font-weight: 900;
+	color: #333;
     padding: 20px 175px 20px 20px;
     border-top: 1px dashed #bebebe;
     border-bottom: 1px dashed #bebebe;
     border-right: 1px dashed #bebebe;
+}
+.footer-wrapper a:nth-of-type(2) {
+	display: inline-block;
+    font-size: 12px;
+    font-weight: 900;
+	color: #333;
+    padding: 20px 0px 20px 17px;
+    border-top: 1px dashed #bebebe;
+    border-bottom: 1px dashed #bebebe;
+}
+*/
+footer input[type="text"] {
+		display: inline-block;
+		box-sizing: border-box;
+        width: 278px;
+        height: 30px;
+        font-size: 12px;
+        border: 1px solid #b7b7b7;
+        margin: 0;
+        padding-left: 5px;
+    }
+    footer input[type="text"]:focus {
+        outline: none;
+        background-color: #eee;
+        box-shadow: inset 0 0 12px 1px #ccc;
+    }
+footer .footer-wrapper .footer-wrapper-top div.button {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-color: red;
 }
