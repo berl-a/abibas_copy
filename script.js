@@ -379,7 +379,30 @@ $(document).ready(
                 this_img.addClass('normal');
             }
         );
-
-
+		
+		/***LIGHTBOX***/
+		
+		var lightbox_opened = false;
+		
+		$('footer .footer-wrapper .footer-wrapper-top a:first-of-type').click(
+			function(){
+				if(!lightbox_opened){
+//					$('.lightbox-shadow').show();
+//					$('.lightbox').show();
+					
+					$('.lightbox-shadow').fadeIn(100);
+					$('.lightbox').fadeIn(100);
+					lightbox_opened = true;
+				}
+			}
+		);
+		
+		$('.lightbox-shadow').click(
+			function(){
+				$('.lightbox-shadow').hide();
+				$('.lightbox').hide();
+				lightbox_opened = false;
+			}
+		);
     }
 );
