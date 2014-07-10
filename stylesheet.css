@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+header * {
+	vertical-align: top;
+}
 body {
     margin: 0;
     padding: 0;
@@ -41,10 +44,11 @@ header {
         }
 
     header input[type="button"] {
+		position: relative;
         width: 30px;
         height: 30px;
         margin: 0;
-        margin-left: -7px;
+        margin-left: -5px;
         padding: 0;
         border: none;
         background-image: url(res/search_light.png);
@@ -185,12 +189,12 @@ img.slider {
 }
 div.links_under_slider {
     display: inline-block;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
     height: 30px;
     margin: 0;
     position: relative;
-    margin-top: -30px;
+    top: -30px;
     padding: 0;
     z-index: 2;
 
@@ -322,7 +326,7 @@ section {
     .commodity>a {
         position: relative;
         margin-left: 10px;
-        top: 10px;
+        top: 20px;
         font-size: 14px;
         text-decoration: none;
         font-weight: 700;
@@ -482,11 +486,18 @@ footer .bottom-footer p {
 	top: 20%;
 	width: 60%;
 	height: 60%;
-	padding: 20px;
+	padding: 0;
 	z-index: 21;
 	background-color: white;
 	box-shadow: 0 0 300px 150px rgba(10, 10, 10, 0.8);
 	display: none;
+}
+.lightbox img {
+	display: block;
+	width: auto;
+	height: 100%;
+	margin: auto;
+	vertical-align: middle;
 }
 .lightbox-shadow {
 	position: fixed;
